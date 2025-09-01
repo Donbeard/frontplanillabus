@@ -1,13 +1,159 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-200 hover:bg-secondary-300 text-secondary-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md border border-gray-200;
+  }
+  
+  .table-container {
+    @apply shadow ring-1 ring-black ring-opacity-5 md:rounded-lg;
+  }
+  
+  .table {
+    @apply min-w-full divide-y divide-gray-300;
+  }
+  
+  .table-header {
+    @apply bg-gray-50;
+  }
+  
+  .table-header-cell {
+    @apply px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+  }
+  
+  .table-body {
+    @apply bg-white divide-y divide-gray-200;
+  }
+  
+  .table-row {
+    @apply hover:bg-gray-50;
+  }
+  
+  .table-cell {
+    @apply px-4 py-3 text-sm text-gray-900;
+  }
+
+  /* Tablas responsivas para móviles */
+  .mobile-table-container {
+    @apply block md:hidden;
+  }
+
+  .mobile-table-card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 mb-4;
+  }
+
+  .mobile-table-header {
+    @apply px-4 py-3 border-b border-gray-200 bg-gray-50;
+  }
+
+  .mobile-table-title {
+    @apply text-sm font-medium text-gray-900;
+  }
+
+  .mobile-table-content {
+    @apply p-4 space-y-3;
+  }
+
+  .mobile-table-row {
+    @apply flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0;
+  }
+
+  .mobile-table-label {
+    @apply text-sm font-medium text-gray-500;
+  }
+
+  .mobile-table-value {
+    @apply text-sm text-gray-900 text-right;
+  }
+
+  .mobile-table-actions {
+    @apply flex space-x-2 mt-2 pt-2 border-t border-gray-100;
+  }
+
+  .mobile-table-action-btn {
+    @apply text-sm font-medium px-3 py-1 rounded;
+  }
+
+  .mobile-table-action-btn-edit {
+    @apply text-primary-600 hover:text-primary-900;
+  }
+
+  .mobile-table-action-btn-delete {
+    @apply text-red-600 hover:text-red-900;
+  }
+
+  /* Ocultar tabla normal en móviles */
+  .desktop-table-container {
+    @apply hidden md:block;
+  }
+
+  /* Tabla con scroll horizontal en móviles */
+  .table-scroll-container {
+    @apply overflow-x-auto;
+    -webkit-overflow-scrolling: touch; /* Para scroll suave en iOS */
+    scrollbar-width: thin; /* Para Firefox */
+  }
+
+  /* Asegurar que la tabla mantenga su ancho mínimo */
+  .table-scroll-container .table {
+    @apply min-w-full;
+    min-width: max-content; /* Forzar ancho mínimo basado en contenido */
+    white-space: nowrap; /* Evitar que el texto se rompa */
+  }
+
+  /* Asegurar que las celdas no se compriman demasiado */
+  .table-scroll-container .table-cell {
+    @apply px-4 py-3;
+    min-width: 120px; /* Ancho mínimo para las celdas */
+  }
+
+  /* Para celdas con contenido específico */
+  .table-scroll-container .table-cell.text-center {
+    min-width: 80px;
+  }
+
+  .table-scroll-container .table-cell.text-right {
+    min-width: 100px;
+  }
+
+  /* Mejorar la experiencia de scroll en móviles */
+  .table-scroll-container::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .table-scroll-container::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded;
+  }
+
+  .table-scroll-container::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded;
+  }
+
+  .table-scroll-container::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
 }
