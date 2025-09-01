@@ -8,4 +8,4 @@ cmds = ["npm ci"]
 cmds = ["npm run build"]
 
 [start]
-cmd = "npx http-server dist -p $PORT -a 0.0.0.0 --cors -c-1 -S -P http://localhost:$PORT?"
+cmd = "npx http-server dist -p $PORT -a 0.0.0.0 --cors -c-1"
