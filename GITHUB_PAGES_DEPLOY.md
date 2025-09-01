@@ -3,7 +3,7 @@
 ## 📋 **Pasos para solucionar el error 404:**
 
 ### **1. Archivos creados para GitHub Pages:**
-- ✅ `public/404.html` - Maneja el routing de SPA
+- ✅ `public/404.html` - Maneja el routing de SPAs
 - ✅ `public/index.html` - Configurado para GitHub Pages
 - ✅ `vite.config.js` - Configurado con base path correcto
 
