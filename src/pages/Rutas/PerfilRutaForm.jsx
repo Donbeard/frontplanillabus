@@ -144,7 +144,6 @@ const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
               <p className="text-xs text-gray-500 mb-2">Ejemplo: 14:30 para 2:30 PM</p>
               <input
                 type="time"
-                step="900"
                 {...register("hora_inicio", {
                   required: "La hora de inicio es requerida",
                   pattern: {
@@ -155,6 +154,7 @@ const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
                 className="input-field"
                 placeholder="HH:MM"
                 style={{ fontFamily: "monospace" }}
+                data-format="24"
               />
               {errors.hora_inicio && <p className="mt-1 text-sm text-red-600">{errors.hora_inicio.message}</p>}
             </div>
@@ -165,7 +165,6 @@ const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
               <p className="text-xs text-gray-500 mb-2">Ejemplo: 16:45 para 4:45 PM</p>
               <input
                 type="time"
-                step="900"
                 {...register("hora_fin", {
                   required: "La hora de fin es requerida",
                   pattern: {
@@ -183,6 +182,7 @@ const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
                 className="input-field"
                 placeholder="HH:MM"
                 style={{ fontFamily: "monospace" }}
+                data-format="24"
               />
               {errors.hora_fin && <p className="mt-1 text-sm text-red-600">{errors.hora_fin.message}</p>}
             </div>
