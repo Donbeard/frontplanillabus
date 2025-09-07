@@ -143,7 +143,7 @@ const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
               <label className="block text-sm font-medium text-gray-700 mb-1">Hora de Inicio * (formato 24h)</label>
               <p className="text-xs text-gray-500 mb-2">Ejemplo: 14:30 para 2:30 PM</p>
               <input
-                type="time"
+                type="text"
                 {...register("hora_inicio", {
                   required: "La hora de inicio es requerida",
                   pattern: {
@@ -153,8 +153,28 @@ const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
                 })}
                 className="input-field"
                 placeholder="HH:MM"
-                style={{ fontFamily: "monospace" }}
-                data-format="24"
+                style={{
+                  fontFamily: "monospace",
+                  textAlign: "center",
+                }}
+                maxLength="5"
+                onInput={(e) => {
+                  let value = e.target.value.replace(/\D/g, "");
+                  if (value.length >= 2) {
+                    value = value.substring(0, 2) + ":" + value.substring(2, 4);
+                  }
+                  e.target.value = value;
+                }}
+                onKeyDown={(e) => {
+                  // Solo permitir números, backspace, delete, tab, escape, enter
+                  if (
+                    ![8, 9, 27, 13, 46].includes(e.keyCode) &&
+                    !(e.keyCode >= 48 && e.keyCode <= 57) &&
+                    !(e.keyCode >= 96 && e.keyCode <= 105)
+                  ) {
+                    e.preventDefault();
+                  }
+                }}
               />
               {errors.hora_inicio && <p className="mt-1 text-sm text-red-600">{errors.hora_inicio.message}</p>}
             </div>
@@ -164,7 +184,7 @@ const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
               <label className="block text-sm font-medium text-gray-700 mb-1">Hora de Fin * (formato 24h)</label>
               <p className="text-xs text-gray-500 mb-2">Ejemplo: 16:45 para 4:45 PM</p>
               <input
-                type="time"
+                type="text"
                 {...register("hora_fin", {
                   required: "La hora de fin es requerida",
                   pattern: {
@@ -181,8 +201,28 @@ const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
                 })}
                 className="input-field"
                 placeholder="HH:MM"
-                style={{ fontFamily: "monospace" }}
-                data-format="24"
+                style={{
+                  fontFamily: "monospace",
+                  textAlign: "center",
+                }}
+                maxLength="5"
+                onInput={(e) => {
+                  let value = e.target.value.replace(/\D/g, "");
+                  if (value.length >= 2) {
+                    value = value.substring(0, 2) + ":" + value.substring(2, 4);
+                  }
+                  e.target.value = value;
+                }}
+                onKeyDown={(e) => {
+                  // Solo permitir números, backspace, delete, tab, escape, enter
+                  if (
+                    ![8, 9, 27, 13, 46].includes(e.keyCode) &&
+                    !(e.keyCode >= 48 && e.keyCode <= 57) &&
+                    !(e.keyCode >= 96 && e.keyCode <= 105)
+                  ) {
+                    e.preventDefault();
+                  }
+                }}
               />
               {errors.hora_fin && <p className="mt-1 text-sm text-red-600">{errors.hora_fin.message}</p>}
             </div>

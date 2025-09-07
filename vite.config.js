@@ -1,13 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Asegurar que la base sea la raíz
+  base: "/", // Asegurar que la base sea la raíz
   build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
+    outDir: "dist",
+    assetsDir: "assets",
     sourcemap: false,
     rollupOptions: {
       output: {
@@ -16,18 +16,18 @@ export default defineConfig({
     },
   },
   server: {
-    port: 8012, // Puerto para Windows
-    host: '0.0.0.0', // Permitir acceso desde la red
+    port: 3000, // Puerto para Windows
+    host: "0.0.0.0", // Permitir acceso desde la red
     open: true,
     cors: true, // Habilitar CORS
     proxy: {
       // Proxy para el backend
-      '/api': {
-        target: 'http://localhost:8013',
+      "/api": {
+        target: "http://localhost:3000",
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api/, '/api')
-      }
-    }
-  }
-})
+        rewrite: (path) => path.replace(/^\/api/, "/api"),
+      },
+    },
+  },
+});
