@@ -41,7 +41,7 @@ const Layout = () => {
       {/* Sidebar para móviles */}
       <div className={`fixed inset-0 z-50 lg:hidden ${sidebarOpen ? 'block' : 'hidden'}`}>
         <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
-        <div className="fixed inset-y-0 left-0 flex w-50 flex-col bg-white">
+        <div className="fixed inset-y-0 left-0 flex w-64 flex-col bg-white shadow-xl">
           <div className="flex h-16 items-center justify-between px-4">
             <h1 className="text-xl font-bold text-gray-900">PlanillaBus</h1>
             <button
@@ -76,7 +76,7 @@ const Layout = () => {
       </div>
 
       {/* Sidebar para desktop */}
-      <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-50 lg:flex-col">
+      <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
         <div className="flex flex-col flex-grow bg-white border-r border-gray-200">
           <div className="flex h-14 items-center px-3">
             <h1 className="text-base font-bold text-gray-900">PlanillaBus</h1>
@@ -105,9 +105,9 @@ const Layout = () => {
       </div>
 
       {/* Contenido principal */}
-      <div className="lg:pl-50">
+      <div className="lg:pl-64">
         {/* Header */}
-        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+        <div className="sticky top-0 z-30 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
           <button
             type="button"
             className="-m-2.5 p-2.5 text-gray-700 lg:hidden"

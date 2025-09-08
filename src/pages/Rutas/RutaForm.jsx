@@ -141,7 +141,7 @@ const RutaForm = ({ ruta, onClose, onSubmit }) => {
                     Valor del Pasaje *
                   </label>
                   <p className="text-xs text-gray-500 mb-2">
-                    Se creará automáticamente un perfil para todos los días con este valor
+                    Se creará automáticamente una tarifa para todos los días con este valor
                   </p>
                   <input
                     type="number"

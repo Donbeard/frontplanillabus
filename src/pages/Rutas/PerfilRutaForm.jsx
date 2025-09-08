@@ -94,7 +94,7 @@ const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
         <div className="mt-3">
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-medium text-gray-900">{perfil ? "Editar Perfil" : "Nuevo Perfil"}</h3>
+            <h3 className="text-lg font-medium text-gray-900">{perfil ? "Editar Tarifa" : "Nueva Tarifa"}</h3>
             <button onClick={handleCancel} className="text-gray-400 hover:text-gray-600">
               <XMarkIcon className="h-6 w-6" />
             </button>

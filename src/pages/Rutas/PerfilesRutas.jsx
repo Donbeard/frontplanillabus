@@ -13,7 +13,7 @@ const PerfilesRutas = ({ ruta, onBack }) => {
   const [editingPerfil, setEditingPerfil] = useState(null);
   const { notification, showSuccess, showError, hideNotification } = useNotification();
 
-  // Cargar perfiles al montar el componente
+  // Cargar tarifas al montar el componente
   useEffect(() => {
     if (ruta) {
       loadPerfiles();
@@ -27,8 +27,8 @@ const PerfilesRutas = ({ ruta, onBack }) => {
       setPerfiles(response.data.results || response.data);
       setError(null);
     } catch (err) {
-      console.error('Error cargando perfiles:', err);
-      setError('Error al cargar los perfiles');
+      console.error('Error cargando tarifas:', err);
+      setError('Error al cargar las tarifas');
     } finally {
       setLoading(false);
     }
@@ -47,14 +47,14 @@ const PerfilesRutas = ({ ruta, onBack }) => {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm('¿Estás seguro de que quieres eliminar este perfil?')) {
+    if (window.confirm('¿Estás seguro de que quieres eliminar esta tarifa?')) {
       try {
         await perfilesRutasAPI.delete(id);
         await loadPerfiles(); // Recargar la lista
-        showSuccess('Perfil eliminado correctamente');
+        showSuccess('Tarifa eliminada correctamente');
       } catch (err) {
-        console.error('Error eliminando perfil:', err);
-        showError('Error al eliminar el perfil');
+        console.error('Error eliminando tarifa:', err);
+        showError('Error al eliminar la tarifa');
       }
     }
   };
@@ -67,19 +67,19 @@ const PerfilesRutas = ({ ruta, onBack }) => {
   const handleFormSubmit = async (perfilData) => {
     try {
       if (editingPerfil) {
-        // Actualizar perfil existente
+        // Actualizar tarifa existente
         await perfilesRutasAPI.update(editingPerfil.id, perfilData);
-        showSuccess('Perfil actualizado correctamente');
+        showSuccess('Tarifa actualizada correctamente');
       } else {
-        // Crear nuevo perfil
+        // Crear nueva tarifa
         await perfilesRutasAPI.create(perfilData);
-        showSuccess('Perfil creado correctamente');
+        showSuccess('Tarifa creada correctamente');
       }
       await loadPerfiles(); // Recargar la lista
       handleFormClose();
     } catch (err) {
-      console.error('Error guardando perfil:', err);
-      showError('Error al guardar el perfil');
+      console.error('Error guardando tarifa:', err);
+      showError('Error al guardar la tarifa');
     }
   };
 
@@ -108,7 +108,7 @@ const PerfilesRutas = ({ ruta, onBack }) => {
               <ArrowLeftIcon className="h-5 w-5" />
             </button>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Perfiles de Ruta</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Tarifas de Ruta</h1>
               <p className="mt-1 text-sm text-gray-500">
                 {ruta?.ciudad_origen?.nombre} - {ruta?.ciudad_destino?.nombre}
               </p>
@@ -118,7 +118,7 @@ const PerfilesRutas = ({ ruta, onBack }) => {
         <div className="card p-8">
           <div className="text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto"></div>
-            <p className="mt-2 text-gray-600">Cargando perfiles...</p>
+            <p className="mt-2 text-gray-600">Cargando tarifas...</p>
           </div>
         </div>
       </div>
@@ -137,7 +137,7 @@ const PerfilesRutas = ({ ruta, onBack }) => {
               <ArrowLeftIcon className="h-5 w-5" />
             </button>
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Perfiles de Ruta</h1>
+              <h1 className="text-2xl font-bold text-gray-900">Tarifas de Ruta</h1>
               <p className="mt-1 text-sm text-gray-500">
                 {ruta?.ciudad_origen?.nombre} - {ruta?.ciudad_destino?.nombre}
               </p>
@@ -182,7 +182,7 @@ const PerfilesRutas = ({ ruta, onBack }) => {
           className="btn-primary flex items-center"
         >
           <PlusIcon className="h-5 w-5 mr-2" />
-          Nuevo Perfil
+          Nueva Tarifa
         </button>
       </div>
 
@@ -205,7 +205,7 @@ const PerfilesRutas = ({ ruta, onBack }) => {
               {perfiles.length === 0 ? (
                 <tr>
                   <td colSpan="6" className="table-cell text-center text-gray-500 py-8">
-                    No hay perfiles registrados para esta ruta
+                    No hay tarifas registradas para esta ruta
                   </td>
                 </tr>
               ) : (

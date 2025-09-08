@@ -83,7 +83,7 @@ const Rutas = () => {
     }
   };
 
-  const handleViewPerfiles = (ruta) => {
+  const handleViewTarifas = (ruta) => {
     setSelectedRuta(ruta);
   };
 
@@ -98,7 +98,7 @@ const Rutas = () => {
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Rutas</h1>
             <p className="mt-1 text-sm text-gray-500">
-              Gestión de rutas y perfiles de horarios
+              Gestión de rutas y tarifas de horarios
             </p>
           </div>
         </div>
@@ -119,7 +119,7 @@ const Rutas = () => {
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Rutas</h1>
             <p className="mt-1 text-sm text-gray-500">
-              Gestión de rutas y perfiles de horarios
+              Gestión de rutas y tarifas de horarios
             </p>
           </div>
         </div>
@@ -138,7 +138,7 @@ const Rutas = () => {
     );
   }
 
-  // Si hay una ruta seleccionada, mostrar los perfiles de esa ruta
+  // Si hay una ruta seleccionada, mostrar las tarifas de esa ruta
   if (selectedRuta) {
     return (
       <PerfilesRutas
@@ -213,7 +213,7 @@ const Rutas = () => {
               <tr>
                 <th className="table-header-cell">Origen</th>
                 <th className="table-header-cell">Destino</th>
-                <th className="table-header-cell">Perfiles</th>
+                <th className="table-header-cell">Tarifas</th>
                 <th className="table-header-cell">Estado</th>
                 <th className="table-header-cell">Acciones</th>
               </tr>
@@ -230,7 +230,7 @@ const Rutas = () => {
                   <tr key={ruta.id} className="table-row">
                     <td className="table-cell">{ruta.ciudad_origen?.nombre || 'N/A'}</td>
                     <td className="table-cell">{ruta.ciudad_destino?.nombre || 'N/A'}</td>
-                    <td className="table-cell">{ruta.num_perfiles || 0} perfiles</td>
+                    <td className="table-cell">{ruta.num_perfiles || 0} tarifas</td>
                     <td className="table-cell">
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                         ruta.activo 
@@ -249,7 +249,7 @@ const Rutas = () => {
                           <PencilIcon className="h-4 w-4" />
                         </button>
                         <button 
-                          onClick={() => handleViewPerfiles(ruta)}
+                          onClick={() => handleViewTarifas(ruta)}
                           className="text-blue-600 hover:text-blue-900 p-1 rounded"
                         >
                           <ClockIcon className="h-4 w-4" />
