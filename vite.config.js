@@ -19,6 +19,11 @@ export default defineConfig({
       },
     },
   },
+  // Configuración para servidor de desarrollo
+  preview: {
+    port: 4173,
+    strictPort: true,
+  },
   server: {
     port: 3000, // Puerto para Windows
     host: "0.0.0.0", // Permitir acceso desde la red
