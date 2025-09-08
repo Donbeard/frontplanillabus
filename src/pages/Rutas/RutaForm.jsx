@@ -36,6 +36,7 @@ const RutaForm = ({ ruta, onClose, onSubmit }) => {
     } : {
       id_ciudad_origen: '',
       id_ciudad_destino: '',
+      valor_perfil: '',
       activo: true
     }
   });
@@ -47,6 +48,11 @@ const RutaForm = ({ ruta, onClose, onSubmit }) => {
       id_ciudad_origen: parseInt(data.id_ciudad_origen),
       id_ciudad_destino: parseInt(data.id_ciudad_destino)
     };
+
+    // Si es una nueva ruta y tiene valor_perfil, convertir a número
+    if (!ruta && data.valor_perfil) {
+      transformedData.valor_perfil = parseFloat(data.valor_perfil);
+    }
     
     onSubmit(transformedData);
     reset();
@@ -127,6 +133,35 @@ const RutaForm = ({ ruta, onClose, onSubmit }) => {
                   <p className="mt-1 text-sm text-red-600">{errors.id_ciudad_destino.message}</p>
                 )}
               </div>
+
+              {/* Valor del Perfil (solo para nuevas rutas) */}
+              {!ruta && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Valor del Pasaje *
+                  </label>
+                  <p className="text-xs text-gray-500 mb-2">
+                    Se creará automáticamente un perfil para todos los días con este valor
+                  </p>
+                  <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    {...register('valor_perfil', {
+                      required: 'El valor del pasaje es requerido',
+                      min: {
+                        value: 0,
+                        message: 'El valor debe ser mayor a 0'
+                      }
+                    })}
+                    className="input-field"
+                    placeholder="0.00"
+                  />
+                  {errors.valor_perfil && (
+                    <p className="mt-1 text-sm text-red-600">{errors.valor_perfil.message}</p>
+                  )}
+                </div>
+              )}
 
               {/* Estado */}
               <div>
