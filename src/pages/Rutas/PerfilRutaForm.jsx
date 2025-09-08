@@ -120,7 +120,7 @@ const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
             {/* Días de la Semana */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Días de la Semana *</label>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-2">
                 {diasSemana.map((dia) => (
                   <label key={dia.id} className="flex items-center">
                     <input

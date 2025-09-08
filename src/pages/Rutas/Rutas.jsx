@@ -47,7 +47,7 @@ const Rutas = () => {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm('¿Estás seguro de que quieres eliminar esta ruta?')) {
+    if (window.confirm('¿Está seguro de que quieres eliminar esta ruta?')) {
       try {
         await rutasAPI.delete(id);
         await loadRutas(); // Recargar la lista
