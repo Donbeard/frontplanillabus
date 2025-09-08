@@ -2,6 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
+// Forzar deployment Railway
+
 const PerfilRutaForm = ({ perfil, ruta, onClose, onSubmit }) => {
   const diasSemana = [
     { id: 1, nombre: "Lunes" },
