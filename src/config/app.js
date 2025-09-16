@@ -1,7 +1,7 @@
 // Configuración de la aplicación
 export const APP_CONFIG = {
-  // URL de la API - Cambiada a Railway para pruebas
-  API_URL: import.meta.env.VITE_API_URL || 'https://planillabus-production.up.railway.app/api',
+  // URL de la API - Cambiada al servidor de producción
+  API_URL: import.meta.env.VITE_API_URL || 'http://144.76.41.52:8012/api',
   
   // Configuración de la app
   APP_NAME: 'PlanillaBus',
@@ -15,8 +15,8 @@ export const APP_CONFIG = {
   
   // Configuración de la app móvil
   MOBILE_CONFIG: {
-    // URL de la API para móvil (cuando se despliegue en Railway)
-    API_URL_MOBILE: 'https://planillabus-production.up.railway.app/api',
+    // URL de la API para móvil
+    API_URL_MOBILE: 'http://144.76.41.52:8012/api',
     
     // Configuración de Capacitor
     CAPACITOR_CONFIG: {
@@ -46,7 +46,7 @@ export const getApiUrl = () => {
     cordova: !!window.Cordova
   });
   
-  // Ahora siempre usar Railway para pruebas
-  console.log('Usando API de Railway para pruebas:', APP_CONFIG.API_URL);
+  // Usar el servidor de producción
+  console.log('Usando API del servidor de producción:', APP_CONFIG.API_URL);
   return APP_CONFIG.API_URL;
 };
