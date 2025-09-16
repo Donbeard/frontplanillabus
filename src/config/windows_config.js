@@ -1,7 +1,7 @@
 // Configuración específica para Windows
 export const WINDOWS_CONFIG = {
   // URL de la API para Windows
-  API_URL: import.meta.env.VITE_API_URL || 'http://localhost:8013/api',
+  API_URL: import.meta.env.VITE_API_URL || 'http://144.76.41.52:8013/api',
   
   // Puerto del frontend
   FRONTEND_PORT: 8012,
@@ -22,7 +22,7 @@ export const WINDOWS_CONFIG = {
   // Configuración de la app móvil
   MOBILE_CONFIG: {
     // URL de la API para móvil en Windows
-    API_URL_MOBILE: 'http://localhost:8013/api',
+    API_URL_MOBILE: 'http://144.76.41.52:8013/api',
     
     // Configuración de Capacitor
     CAPACITOR_CONFIG: {
@@ -52,9 +52,9 @@ export const getWindowsApiUrl = () => {
     cordova: !!window.Cordova
   });
   
-  // Para Windows, usar la URL local
+  // Para Windows, usar la URL del servidor de producción
   const apiUrl = WINDOWS_CONFIG.API_URL;
-  console.log('Usando API de Windows:', apiUrl);
+  console.log('Usando API del servidor de producción:', apiUrl);
   return apiUrl;
 };
 
